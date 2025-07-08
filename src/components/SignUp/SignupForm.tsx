@@ -7,7 +7,7 @@ import SignupInput from "./SignupInput";
 import PasswordField from "./PasswordField";
 import PhotoUpload from "./PhotoUpload";
 import SelectOccupation from "./SignupProvider/fields/SelectOccupation";
-import { ServiceType } from "../../types/ServiceTypes"; // Assuming ServiceType has serviceId and serviceName
+import { ServiceType, ServiceTypes } from "../../types/ServiceTypes"; // Assuming ServiceType has serviceId and serviceName
 
 interface SignupFormProps {
   role: "ROLE_CUSTOMER" | "ROLE_PROVIDER";
@@ -15,7 +15,7 @@ interface SignupFormProps {
 
 const SignupForm: React.FC<SignupFormProps> = ({ role }) => {
   const navigate = useNavigate();
-  const { register, getAllServices } = useAuth();
+  const { register, getAllService } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -25,7 +25,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ role }) => {
   const [error, setError] = useState<string | null>(null);
 
   // States for services (provider specific)
-  const [services, setServices] = useState<ServiceType[]>([]);
+  const [services, setServices] = useState<ServiceTypes[]>([]);
   const [serviceLoading, setServiceLoading] = useState(true);
   const [serviceError, setServiceError] = useState<string | null>(null);
 
@@ -47,7 +47,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ role }) => {
       const fetchServices = async () => {
         try {
           setServiceLoading(true);
-          const data = await getAllServices();
+          const data = await getAllService();
           setServices(data || []); // Ensure data is an array
           setServiceError(null);
         } catch (err) {
@@ -64,7 +64,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ role }) => {
       setServiceLoading(true);
       setServices([]);
     };
-  }, [role, getAllServices]);
+  }, [role, getAllService]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>

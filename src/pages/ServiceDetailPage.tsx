@@ -10,7 +10,7 @@ import BookServiceForm from '../components/CustomerDashboard/BookServiceForm';
 import { Service } from '../types/service.d';
 import { MapPin, Star, Phone, Mail, Clock, Info, Briefcase, DollarSign } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:8081/api';
+const API_BASE_URL = 'http://localhost:8080/api';
 
 const ServiceDetailPage: React.FC = () => {
     const { username } = useParams<{ username: string }>(); // username can be string | undefined

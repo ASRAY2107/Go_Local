@@ -5,7 +5,7 @@
 // // import ProviderRatingCustomer from './ProviderRatingCustomer'; // No longer needed as it's merged
 // import { Provider } from '../components/exportTypes'; // Ensure this path is correct for your Provider interface
  
-// const API_BASE_URL = 'http://localhost:8081/api';
+// const API_BASE_URL = 'http://localhost:8080/api';
  
 // // Interface for Customer as received from the backend
 // interface Customer {
@@ -330,7 +330,7 @@ import { CheckCircle, XCircle, Clock, Info, Star} from 'lucide-react';
 // import ProviderRatingCustomer from './ProviderRatingCustomer'; // No longer needed as it's merged
 import { Provider } from '../components/exportTypes'; // Ensure this path is correct for your Provider interface
  
-const API_BASE_URL = 'http://localhost:8081/api';
+const API_BASE_URL = 'http://localhost:8080/api';
  
 // Interface for Customer as received from the backend
 interface Customer {

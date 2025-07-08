@@ -42,7 +42,7 @@ const SearchCustomer: React.FC<SearchCustomerProps> = ({ onCustomerFound, onSear
       // For simplicity, let's use a username-based search as it's more specific.
       // You might need to adjust the API endpoint based on your actual backend.
       const response = await axios.get<Customer>(
-        `http://localhost:8081/api/admin/get-customers/${customerId}`,
+        `http://localhost:8080/api/admin/get-customers/${customerId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

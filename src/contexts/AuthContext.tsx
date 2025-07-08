@@ -9,7 +9,7 @@ import React, {
   useCallback, // Import useCallback
 } from "react";
 import axios from "axios";
-import { ServiceType } from "../types/ServiceTypes";
+import { ServiceType,ServiceTypes } from "../types/ServiceTypes";
 
 interface User {
   username: string;
@@ -44,6 +44,7 @@ interface AuthContextType {
   register: (formData: any, role: "ROLE_CUSTOMER" | "ROLE_PROVIDER") => Promise<boolean>;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   getAllServices: () => Promise<ServiceType[] | null>;
+  getAllService:() => Promise<ServiceTypes[] | null>;
   refreshUser: () => Promise<void>; // Added refreshUser function
 }
 
@@ -66,9 +67,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           return { username, role, isDeleted: "false", adminName: username }; // You might need to adjust 'isDeleted' and 'adminName' based on your actual User type's requirements for an admin.
         } 
         if (role === "ROLE_CUSTOMER") {
-          profileApiUrl = `http://localhost:8081/api/customer/get-profile/${username}`;
+          profileApiUrl = `http://localhost:8080/api/customer/get-profile/${username}`;
         } else if (role === "ROLE_PROVIDER") {
-          profileApiUrl = `http://localhost:8081/api/provider/get-profile/${username}`;
+          profileApiUrl = `http://localhost:8080/api/provider/get-profile/${username}`;
         }else {
           console.error("AuthContext: Unknown user role during profile fetch:", role);
           return null;
@@ -153,7 +154,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (username: string, password: string): Promise<boolean> => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8081/api/auth/login", {
+      const response = await axios.post("http://localhost:8080/api/auth/login", {
         username,
         password,
       });
@@ -201,9 +202,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     role: "ROLE_CUSTOMER" | "ROLE_PROVIDER"
 ): Promise<boolean> => {
     try {
-        let endpoint = "http://localhost:8081/api/auth/register-customer";
+        let endpoint = "http://localhost:8080/api/auth/register-customer";
         if (role === "ROLE_PROVIDER") {
-            endpoint = "http://localhost:8081/api/auth/register-provider";
+            endpoint = "http://localhost:8080/api/auth/register-provider";
         }
         console.log(endpoint, " : ", payload);
         const response = await axios.post(endpoint, payload, {
@@ -222,7 +223,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const getAllServices = async (): Promise<ServiceType[] | null> => {
     try {
       const response = await axios.get<ServiceType[]>(
-        "http://localhost:8081/api/auth/get-providers"
+        "http://localhost:8080/api/auth/get-providers"
       );
       console.log("AuthContext: Fetched all services:", response.data);
       return response.data;
@@ -231,6 +232,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return null;
     }
   };
+
+  const getAllService = async (): Promise<ServiceTypes[] | null> => {
+    try {
+      const response = await axios.get<ServiceTypes[]>(
+        "http://localhost:8080/api/auth/get-all-services"
+      );
+      console.log("AuthContext: Fetched all services:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("AuthContext: Failed to fetch services:", error);
+      return null;
+    }
+  };
+
 
   const value: AuthContextType = {
     user,
@@ -242,6 +257,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     register,
     setUser,
     getAllServices,
+    getAllService,
     refreshUser, // Provide refreshUser
   };
 

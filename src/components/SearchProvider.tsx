@@ -42,7 +42,7 @@ const SearchProvider: React.FC<SearchProviderProps> = ({
 
         try {
             const response = await axios.get<Provider>(
-                `http://localhost:8081/api/admin/get-providers/${searchUsername.trim()}`,
+                `http://localhost:8080/api/admin/get-providers/${searchUsername.trim()}`,
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,

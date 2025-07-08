@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { User, MapPin, Phone, Mail, Star, Briefcase, TrendingUp, CheckCircle, Edit, Save, XCircle, AlertTriangle } from 'lucide-react';
  
-const API_BASE_URL = 'http://localhost:8081/api'; // Your backend base URL
+const API_BASE_URL = 'http://localhost:8080/api'; // Your backend base URL
  
 interface Provider {
     username: string;

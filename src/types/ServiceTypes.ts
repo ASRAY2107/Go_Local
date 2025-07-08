@@ -17,3 +17,8 @@ export type ServiceType=UserAccount& {
         noOfTimesBooked: number;
 
   }
+
+  export type ServiceTypes = {
+    serviceId: string;  
+    serviceName: string;
+    noOfProviders: number;}

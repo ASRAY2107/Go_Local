@@ -185,7 +185,7 @@ const UpdateProvider: React.FC<UpdateProviderProps> = ({ provider, onUpdateSucce
 
 
       const response = await axios.put<Provider>(
-        `http://localhost:8081/api/admin/update-provider/${formData.username}`,
+        `http://localhost:8080/api/admin/update-provider/${formData.username}`,
         dataToSend,
         {
           headers: {

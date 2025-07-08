@@ -114,7 +114,7 @@ const CreateCustomer: React.FC<CreateCustomerProps> = ({ onCustomerCreated, onCa
       console.log(dataToSend.profilePicture);
 
       const response = await axios.post<Customer>(
-        'http://localhost:8081/api/admin/create-customer', // Replace with your actual API endpoint
+        'http://localhost:8080/api/admin/create-customer', // Replace with your actual API endpoint
         dataToSend,
         {
           headers: {

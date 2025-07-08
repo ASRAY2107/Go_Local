@@ -64,7 +64,7 @@ const CreateService: React.FC<CreateServiceProps> = ({ onServiceCreated, onCance
       };
 
       const response = await axios.post<Services>(
-        'http://localhost:8081/api/admin/create-service', // Adjust this API endpoint as per your backend
+        'http://localhost:8080/api/admin/create-service', // Adjust this API endpoint as per your backend
         newServiceData,
         {
           headers: {

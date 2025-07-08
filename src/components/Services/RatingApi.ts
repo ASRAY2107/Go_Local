@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Base URL for API endpoints.
 // This is the base for your customer-specific rating endpoint.
-const API_BASE_URL = 'http://localhost:8081/api';
+const API_BASE_URL = 'http://localhost:8080/api';
 
 // Response type for successful rating operations
 interface RatingResponse {

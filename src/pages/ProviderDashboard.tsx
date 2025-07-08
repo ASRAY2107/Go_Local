@@ -8,7 +8,7 @@ import { User, Calendar, Award, LayoutDashboard } from 'lucide-react'; // LogOut
 import ProviderProfileInfo from '../components/ProviderProfileInfo';
 import ProviderBookingRequests from '../components/ProviderBookingRequests';
  
-const API_BASE_URL = 'http://localhost:8081/api'; // Your backend base URL
+const API_BASE_URL = 'http://localhost:8080/api'; // Your backend base URL
  
 // Define the possible tabs
 type DashboardTab = 'profileInfo' | 'bookingRequests' | 'ratingCustomers';

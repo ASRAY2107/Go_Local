@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
-import { ServiceType } from '../../../../types/ServiceTypes';
+import { ServiceType, ServiceTypes } from '../../../../types/ServiceTypes';
 
 interface SelectOccupationProps {
     id: string;
@@ -10,7 +10,7 @@ interface SelectOccupationProps {
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     loading: boolean;
     error: string | null;
-    options: ServiceType[];
+    options: ServiceTypes[];
     required?: boolean;
 }
 

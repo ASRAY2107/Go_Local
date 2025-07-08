@@ -81,7 +81,7 @@ const AdminDashboard: React.FC = () => {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          'http://localhost:8081/api/auth/me',
+          'http://localhost:8080/api/auth/me',
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -104,7 +104,7 @@ const AdminDashboard: React.FC = () => {
       if (!isCustomerSearchActive && activeTab === "customer" && !customerToUpdate) {
         try {
           const Cusres = await axios.get<Customer[]>(
-            'http://localhost:8081/api/admin/get-customers',
+            'http://localhost:8080/api/admin/get-customers',
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -129,7 +129,7 @@ const AdminDashboard: React.FC = () => {
       if (!isProviderSearchActive && activeTab === "provider" && !providerToUpdate) {
         try {
           const prores = await axios.get<Provider[]>(
-            'http://localhost:8081/api/auth/get-providers',
+            'http://localhost:8080/api/auth/get-providers',
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -154,7 +154,7 @@ const AdminDashboard: React.FC = () => {
       if (activeTab === "service" && !isServiceSearchActive) {
         try {
           const serviceRes = await axios.get<Services[]>(
-            'http://localhost:8081/api/admin/get-service',
+            'http://localhost:8080/api/admin/get-service',
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -410,9 +410,9 @@ const AdminDashboard: React.FC = () => {
       let deleteEndpoint = '';
 
       if (type === 'customer') {
-        deleteEndpoint = `http://localhost:8081/api/admin/delete-customer/${username}`;
+        deleteEndpoint = `http://localhost:8080/api/admin/delete-customer/${username}`;
       } else if (type === 'provider') {
-        deleteEndpoint = `http://localhost:8081/api/admin/delete-provider/${username}`;
+        deleteEndpoint = `http://localhost:8080/api/admin/delete-provider/${username}`;
       } else {
         throw new Error('Unknown user type for deletion.');
       }

@@ -15,7 +15,7 @@ const BookingsTab: React.FC = () => {
       setError(null);
       try {
         const response = await axios.get<Booking[]>(
-          'http://localhost:8081/api/admin/get-all-bookings', // Corrected API endpoint as per previous suggestions
+          'http://localhost:8080/api/admin/get-all-bookings', // Corrected API endpoint as per previous suggestions
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

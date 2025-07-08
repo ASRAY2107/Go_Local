@@ -49,7 +49,7 @@ const SearchService: React.FC<SearchServiceProps> = ({ onServiceFound, onSearchE
 
     try {
       const response = await axios.get<Services>(
-        `http://localhost:8081/api/admin/get-service/${serviceId}`, // Adjust this API endpoint
+        `http://localhost:8080/api/admin/get-service/${serviceId}`, // Adjust this API endpoint
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

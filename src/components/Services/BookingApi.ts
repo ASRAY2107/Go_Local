@@ -1,7 +1,7 @@
 // src/services/bookingApi.ts
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8081/api';
+const API_BASE_URL = 'http://localhost:8080/api';
 
 // --- Define Booking Type (matching backend Booking entity fields more closely) ---
 // Note: Frontend status might be a subset or mapping of backend enum.

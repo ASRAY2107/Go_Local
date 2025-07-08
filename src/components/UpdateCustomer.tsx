@@ -107,7 +107,7 @@ const UpdateCustomer: React.FC<UpdateCustomerProps> = ({ customer, onUpdateSucce
       // Make the PUT request to update the customer
       // Assuming your backend expects the username in the path for update
       const response = await axios.put<Customer>(
-        `http://localhost:8081/api/admin/update-customer/${formData.username}`, // Use username for update API
+        `http://localhost:8080/api/admin/update-customer/${formData.username}`, // Use username for update API
         dataToSend,
         {
           headers: {

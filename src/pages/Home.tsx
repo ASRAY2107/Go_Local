@@ -181,11 +181,11 @@ const Home: React.FC = () => {
       let url: string;
  
       if (trimmedLocation && trimmedServiceType) {
-        url = `http://localhost:8081/api/search/search-relevant/${encodeURIComponent(trimmedLocation)}/${encodeURIComponent(trimmedServiceType)}`;
+        url = `http://localhost:8080/api/search/search-relevant/${encodeURIComponent(trimmedLocation)}/${encodeURIComponent(trimmedServiceType)}`;
       } else if (trimmedLocation) {
-        url = `http://localhost:8081/api/search/search-by-location/${encodeURIComponent(trimmedLocation)}`;
+        url = `http://localhost:8080/api/search/search-by-location/${encodeURIComponent(trimmedLocation)}`;
       } else {
-        url = `http://localhost:8081/api/search/search-by-service/${encodeURIComponent(trimmedServiceType)}`;
+        url = `http://localhost:8080/api/search/search-by-service/${encodeURIComponent(trimmedServiceType)}`;
       }
  
       console.log("Fetching URL:", url);
@@ -405,7 +405,7 @@ const Home: React.FC = () => {
               </Link>
 
               <Link
-                to="/signup/helper"
+                to="/signup/provider"
                 className="group border-2 border-white text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
               >
                 <Zap className="mr-2 h-5 w-5" />
@@ -596,7 +596,7 @@ const Home: React.FC = () => {
             </Link>
 
             <Link
-              to="/signup/helper"
+              to="/signup/provider"
               className="group border-2 border-white text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
               <Zap className="mr-2 h-5 w-5" />
